@@ -26,5 +26,6 @@ def test_repository_custom_order():
         session.commit()
         row = session.scalar(select(OrderRow).where(OrderRow.id == 2))
         assert row is not None
+        assert row.id == 2
         assert row.total == 250
         assert row.status == "NEW"

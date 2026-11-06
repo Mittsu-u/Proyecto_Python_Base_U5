@@ -5,7 +5,7 @@
 - **Docente:** Miguel Ángel Gómez Marroquín
 - **Equipo:**
   - Jesús Enrique López Martínez (Mat. 2162022)
-  - Camila Trujillo Quintanilla (Mat. 216775)
+  - Camila Trujillo Quintanilla (Mat. 2162775)
   - Cesar Damian Nerio Gonzales (Mat. 2161751)
 
 ## Comandos de Verificación Local

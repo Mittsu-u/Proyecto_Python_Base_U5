@@ -1,0 +1,10 @@
+ID,Modulo,CasoDePrueba,Entradas,ResultadoEsperado,TipoPrueba
+TC01,Domain,Descuento cliente VIP m100,"total=100, vip=True",confirm() retorne 85.0 y status 'CONFIRMED',Prueba Unitarias
+TC02,Domain,Cliente regular sin descuento,"total=100, vip=False",confirm() retorne 100.0 y status 'CONFIRMED',Prueba Unitarias
+TC03,Domain,Bloqueo por deuda activa,"total=100, customer_debt=50",Lanza excepción CustomerHasDebt,Prueba Negativa
+TC04,Domain,Validación total invalido cero,"total=0",Lanza excepción ValueError("total must be > 0"),Prueba Negativa
+TC05,Domain,Validación total invalido negativo,"total=-1",Lanza excepción ValueError("total must be > 0"),Prueba Negativa
+TC06,Domain,Descuento cliente VIP m200,"total=200, vip=True",confirm() retorne 170.0 y status 'CONFIRMED',Prueba Unitarias
+TC07,Domain,Cliente regular m200,"total=200, vip=False",confirm() retorne 200.0 y status 'CONFIRMED',Prueba Unitarias
+TC08,Domain,Prevención de doble confirmación,"Confirmar pedido 2 veces",Lanza ValueError("already confirmed"),Prueba Negativa
+TC09,Security,Validación de regla de cancelación,"is_admin=False, status='CONFIRMED'",can_cancel() retorne False,Seguridad / Permisos

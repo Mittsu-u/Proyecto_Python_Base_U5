@@ -5,16 +5,16 @@ CP-03,RN-01 Descuento >10% requiere gerencia,"Cotizacion $1000, descuento 15%, s
 CP-04,RN-01 Descuento >10% requiere gerencia,"Cotizacion $1000, descuento exactamente 10%, sin autorizacion",Descuento aplicado; monto final $900,Limite,test_cp04_limite_descuento_exactamente_10_se_aplica_sin_autorizacion,Monto final $900,PASSED
 CP-05,Autorizacion por superficie (>300 m2) o monto (>$8000),"150 m2, $3000",No requiere autorizacion de gerencia,Exito,test_cp05_cotizacion_pequena_no_requiere_autorizacion,No requiere autorizacion,PASSED
 CP-06,Autorizacion por superficie (>300 m2) o monto (>$8000),"300 m2, $8000 exactos",No requiere autorizacion de gerencia,Limite,test_cp06_limite_300_m2_y_8000_exactos_no_requieren_autorizacion,No requiere autorizacion,PASSED
-CP-07,Autorizacion por superficie (>300 m2) o monto (>$8000),"301 m2 con $1000; y 100 m2 con $8000.01",Requiere autorizacion de gerencia,Limite,test_cp07_limite_justo_por_encima_requiere_autorizacion,Requiere autorizacion,PASSED
-CP-08,Superficie debe ser mayor a 0,"Superficie 0 y superficie -10",Excepcion SuperficieInvalida,Error,test_cp08_superficie_invalida_se_rechaza,Excepcion lanzada,PASSED
+CP-07,Autorizacion por superficie (>300 m2) o monto (>$8000),301 m2 con $1000; y 100 m2 con $8000.01,Requiere autorizacion de gerencia,Limite,test_cp07_limite_justo_por_encima_requiere_autorizacion,Requiere autorizacion,PASSED
+CP-08,Superficie debe ser mayor a 0,Superficie 0 y superficie -10,Excepcion SuperficieInvalida,Error,test_cp08_superficie_invalida_se_rechaza,Excepcion lanzada,PASSED
 CP-09,RN-05 Acceso denegado penaliza 100%,"Monto $1200, motivo ACCESO_DENEGADO",Penalizacion $1200,Exito,test_cp09_acceso_denegado_penaliza_100_por_ciento,Penalizacion $1200,PASSED
 CP-10,RN-04 Cancelacion tardia penaliza 50%,"Monto $1200, motivo CANCELACION_TARDIA",Penalizacion $600,Exito,test_cp10_cancelacion_tardia_penaliza_50_por_ciento,Penalizacion $600,PASSED
 CP-11,Cierre de servicio exige firma del cliente,"Cerrar con firma vacia, solo espacios o nula",Excepcion ServicioSinFirma; estado sigue EN_EJECUCION,Error,test_cp11_cerrar_servicio_sin_firma_se_rechaza,Excepcion lanzada; estado EN_EJECUCION,PASSED
-CP-12,Dinero no puede ser negativo,"Penalizacion sobre monto -100",Excepcion MontoInvalido,Error,test_cp12_penalizacion_con_monto_negativo_se_rechaza,Excepcion lanzada,PASSED
+CP-12,Dinero no puede ser negativo,Penalizacion sobre monto -100,Excepcion MontoInvalido,Error,test_cp12_penalizacion_con_monto_negativo_se_rechaza,Excepcion lanzada,PASSED
 PERS-01,Persistencia (commit),"Guardar cotizacion C-020 ($2500, desc 5%) y consultarla en otra sesion",Se recupera con monto final $2375,Integracion,test_pers01_guardar_y_recuperar_cotizacion_con_commit,Recuperada con $2375,PASSED
-PERS-02,Persistencia (rollback),"Guardar C-021 y hacer rollback",La consulta devuelve None,Integracion,test_pers02_rollback_descarta_la_cotizacion,None,PASSED
-PERS-03,Persistencia (unicidad de folio),"Guardar dos cotizaciones con folio C-022",IntegrityError al confirmar la segunda,Integracion,test_pers03_folio_duplicado_viola_unicidad,IntegrityError,PASSED
-MOCK-01,Notificacion a gerencia (mock),"Descuento 15% sin autorizacion",Se notifica a gerencia una vez; estado PENDIENTE_AUTORIZACION,Mock,test_mock01_descuento_sin_autorizacion_notifica_a_gerencia,Notificada 1 vez,PASSED
-MOCK-02,Notificacion a gerencia (mock),"Descuento 15% con autorizacion",No se notifica a gerencia,Mock,test_mock02_descuento_autorizado_no_notifica_a_gerencia,No notificada,PASSED
-MOCK-03,Facturacion al cerrar servicio (mock),"Cerrar servicio con firma",Se emite la factura una vez; estado CERRADO,Mock,test_mock03_cierre_con_firma_emite_factura,Factura emitida 1 vez,PASSED
-MOCK-04,Facturacion al cerrar servicio (mock),"Cerrar servicio sin firma",No se emite factura,Mock,test_mock04_cierre_sin_firma_no_emite_factura,Factura no emitida,PASSED
+PERS-02,Persistencia (rollback),Guardar C-021 y hacer rollback,La consulta devuelve None,Integracion,test_pers02_rollback_descarta_la_cotizacion,None,PASSED
+PERS-03,Persistencia (unicidad de folio),Guardar dos cotizaciones con folio C-022,IntegrityError al confirmar la segunda,Integracion,test_pers03_folio_duplicado_viola_unicidad,IntegrityError,PASSED
+MOCK-01,Notificacion a gerencia (mock),Descuento 15% sin autorizacion,Se notifica a gerencia una vez; estado PENDIENTE_AUTORIZACION,Mock,test_mock01_descuento_sin_autorizacion_notifica_a_gerencia,Notificada 1 vez,PASSED
+MOCK-02,Notificacion a gerencia (mock),Descuento 15% con autorizacion,No se notifica a gerencia,Mock,test_mock02_descuento_autorizado_no_notifica_a_gerencia,No notificada,PASSED
+MOCK-03,Facturacion al cerrar servicio (mock),Cerrar servicio con firma,Se emite la factura una vez; estado CERRADO,Mock,test_mock03_cierre_con_firma_emite_factura,Factura emitida 1 vez,PASSED
+MOCK-04,Facturacion al cerrar servicio (mock),Cerrar servicio sin firma,No se emite factura,Mock,test_mock04_cierre_sin_firma_no_emite_factura,Factura no emitida,PASSED
